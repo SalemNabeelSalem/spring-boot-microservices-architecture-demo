@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DepartmentServiceApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(DepartmentServiceApplication.class, args);
 	}
-
 }
