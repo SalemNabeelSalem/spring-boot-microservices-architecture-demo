@@ -1,0 +1,11 @@
+server:
+  port: 9002
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb # http://localhost:9002/h2-console
+    driver-class-name: org.h2.Driver
+    username: salem_nabeel
+    password: sn
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
