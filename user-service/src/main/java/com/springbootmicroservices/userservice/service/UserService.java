@@ -34,7 +34,7 @@ public class UserService {
 
         User user = userRepository.findById(userId).orElse(new User());
 
-        String url = "http://localhost:9001/departments/";
+        String url = "http://DEPARTMENT-SERVICE/departments/";
 
         Department department = restTemplate.getForObject(url + user.getDepartmentId(), Department.class);
 
