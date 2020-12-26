@@ -11,3 +11,5 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
   application:
     name: DEPARTMENT-SERVICE
+  zipkin:
+    base-url: http://127.0.0.1:9411/

@@ -9,4 +9,4 @@ spring:
       server:
         git:
           uri: https://github.com/SalemNabeelSalem/spring-cloud-config-microservice
-            clone-on-start: true
+          clone-on-start: true
