@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Department {
 
-    private Long departmentId;
+    private Long id;
 
-    private String departmentName;
+    private String name;
 
-    private String departmentAddress;
+    private String address;
 
-    private String departmentCode;
+    private String code;
 }

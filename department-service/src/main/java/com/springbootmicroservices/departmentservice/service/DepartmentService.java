@@ -15,15 +15,13 @@ public class DepartmentService {
 
     public Department saveDepartment(Department department) {
 
-        log.info("Inside saveDepartment method of DepartmentService");
-
+        log.info("Inside saveDepartment method of DepartmentService.");
         return departmentRepository.save(department);
     }
 
     public Department findDepartmentById(Long departmentId) {
 
-        log.info("Inside findDepartmentById method of DepartmentService");
-
+        log.info("Inside findDepartmentById method of DepartmentService.");
         return departmentRepository.findById(departmentId).orElse(new Department());
     }
 }

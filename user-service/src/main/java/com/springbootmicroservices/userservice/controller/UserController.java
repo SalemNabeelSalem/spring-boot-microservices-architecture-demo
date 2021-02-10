@@ -9,25 +9,23 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/v1/users")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @PostMapping(value = {"", "/"})
+    @PostMapping("/")
     public User saveUser(@RequestBody User user) {
 
-        log.info("Inside saveUser method of UserController");
-
+        log.info("Inside saveUser method of UserController.");
         return userService.saveUser(user);
     }
 
     @GetMapping("/{id}")
     public UserDepartment getUserWithDepartment(@PathVariable("id") Long userId) {
 
-        log.info("Inside findUserById method of UserController");
-
+        log.info("Inside getUserWithDepartment method of UserController.");
         return userService.getUserWithDepartment(userId);
     }
 }

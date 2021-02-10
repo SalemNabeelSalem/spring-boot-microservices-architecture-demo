@@ -3,13 +3,14 @@ server:
 
 spring:
   datasource:
-    url: jdbc:h2:mem:testdb # http://localhost:9001/h2-console
+    url: jdbc:h2:mem:companydb # http://localhost:9001/h2-console
+    # url: jdbc:h2:tcp://localhost:9002/file:S:/self-development/works/dbs/company
     driver-class-name: org.h2.Driver
     username: salem_nabeel
-    password: sn
+    password: s_n
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
   application:
     name: DEPARTMENT-SERVICE
-  zipkin:
-    base-url: http://127.0.0.1:9411/
+#  zipkin:
+#    base-url: http://127.0.0.1:9411/

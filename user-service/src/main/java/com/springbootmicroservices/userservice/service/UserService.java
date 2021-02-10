@@ -21,22 +21,24 @@ public class UserService {
 
     public User saveUser(User user) {
 
-        log.info("Inside saveUser method of UserService");
-
+        log.info("Inside saveUser method of UserService.");
         return userRepository.save(user);
     }
 
     public UserDepartment getUserWithDepartment(Long userId) {
 
-        log.info("Inside getUserWithDepartment method of UserService");
-
-        UserDepartment userDepartment = new UserDepartment();
+        log.info("Inside getUserWithDepartment method of UserService.");
 
         User user = userRepository.findById(userId).orElse(new User());
 
-        String url = "http://DEPARTMENT-SERVICE/departments/";
+        UserDepartment userDepartment = new UserDepartment();
 
-        Department department = restTemplate.getForObject(url + user.getDepartmentId(), Department.class);
+        // String url = "http://DEPARTMENT-SERVICE/departments/" + user.getDepartmentId();
+
+        // if the user does not exist will cases error on next statement.
+        String url = "http://localhost:9001/api/v1/departments/" + user.getDepartmentId();
+
+        Department department = restTemplate.getForObject(url, Department.class);
 
         userDepartment.setUser(user);
 
