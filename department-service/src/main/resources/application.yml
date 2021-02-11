@@ -2,9 +2,10 @@ server:
   port: 9001
 
 spring:
-  datasource:
-    url: jdbc:h2:mem:companydb # http://localhost:9001/h2-console
-    # url: jdbc:h2:tcp://localhost:9002/file:S:/self-development/works/dbs/company
+  datasource: # http://localhost:9001/h2-console
+    # url: jdbc:h2:mem:companydb # [Embedded Mode, In-Memory]
+    # url: jdbc:h2:file:S:/self-development/works/dbs/company # [Embedded Mode, Local File Storage]
+    url: jdbc:h2:tcp://localhost/file:S:/self-development/works/dbs/company # [Server Mode, Local File Storage]
     driver-class-name: org.h2.Driver
     username: salem_nabeel
     password: s_n
