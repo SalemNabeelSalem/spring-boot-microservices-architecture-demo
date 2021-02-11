@@ -14,6 +14,16 @@ spring:
     hibernate:
       ddl-auto: none
   application:
-    name: USER-SERVICE
+    name: user-service
 #  zipkin:
 #    base-url: http://127.0.0.1:9411/
+
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 2
+  client:
+    service-url:
+      default-zone: http://127.0.0.1:8761/eureka/
+    healthcheck:
+      enabled: true
