@@ -25,3 +25,12 @@ eureka:
       default-zone: http://127.0.0.1:8761/eureka/
     healthcheck:
       enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
