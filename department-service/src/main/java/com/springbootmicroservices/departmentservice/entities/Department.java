@@ -1,4 +1,4 @@
-package com.springbootmicroservices.departmentservice.model;
+package com.springbootmicroservices.departmentservice.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

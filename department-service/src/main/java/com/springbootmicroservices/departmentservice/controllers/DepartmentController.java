@@ -1,7 +1,7 @@
-package com.springbootmicroservices.departmentservice.controller;
+package com.springbootmicroservices.departmentservice.controllers;
 
-import com.springbootmicroservices.departmentservice.model.Department;
-import com.springbootmicroservices.departmentservice.service.DepartmentService;
+import com.springbootmicroservices.departmentservice.entities.Department;
+import com.springbootmicroservices.departmentservice.services.DepartmentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
