@@ -3,39 +3,21 @@ server:
 
 spring:
   application:
-    name: API-GATEWAY-SERVICE
-  cloud:
-    gateway:
-      routes:
-        - id: USER-SERVICE
-          uri: lb://USER-SERVICE
-          predicates:
-            - Path=/users/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: USER-SERVICE
-                fallbackuri: forward:/userServiceFallBack
-        - id: DEPARTMENT-SERVICE
-          uri: lb://DEPARTMENT-SERVICE
-          predicates:
-            - Path=/departments/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: DEPARTMENT-SERVICE
-                fallbackuri: forward:/departmentServiceFallBack
+    name: gateway-service # zuul-proxy
 
-hystrix:
-  command:
-    fallbackcmd:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 4000 # 4s
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: true
+    service-url:
+      default-zone: http://127.0.0.1:8761/eureka/
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: hystrix.stream
+zuul:
+  host:
+    connect-timeout-millis: 60000
+    socket-timeout-millis: 30000
+  routes:
+    department-service:
+      path: /department/**
+      service-id: department-service
+  ignored-services: "*"

@@ -1,7 +1,13 @@
 server:
-  port: 9001
+  port: 9002
 
 spring:
+  application:
+    name: department-service
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none
   datasource: # http://localhost:9001/h2-console
     # url: jdbc:h2:mem:companydb # [Embedded Mode, In-Memory]
     # url: jdbc:h2:file:S:/self-development/works/dbs/company # [Embedded Mode, Local File Storage]
@@ -9,20 +15,17 @@ spring:
     driver-class-name: org.h2.Driver
     username: salem_nabeel
     password: s_n
-  jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-  application:
-    name: department-service
 #  zipkin:
 #    base-url: http://127.0.0.1:9411/
 
 eureka:
   instance:
+    hostname: localhost
     lease-renewal-interval-in-seconds: 1
     lease-expiration-duration-in-seconds: 2
   client:
     service-url:
-      default-zone: http://127.0.0.1:8761/eureka/
+      default-zone: http://localhost:8761/eureka/
     healthcheck:
       enabled: true
 
