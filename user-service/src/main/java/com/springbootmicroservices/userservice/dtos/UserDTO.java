@@ -1,4 +1,4 @@
-package com.springbootmicroservices.userservice.vo;
+package com.springbootmicroservices.userservice.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,13 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Department {
-
-    private Long id;
+public class UserDTO {
 
     private String name;
-
-    private String address;
-
-    private String code;
+    private String age;
 }
