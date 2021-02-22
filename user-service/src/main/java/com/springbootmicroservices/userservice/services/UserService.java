@@ -8,8 +8,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -43,11 +45,20 @@ public class UserService {
 
     public UserDTO getUserById(Long id) {
 
-        return null;
+        return modelMapper.map(userRepository.findById(id).orElse(new User()), UserDTO.class);
     }
 
     public List<UserDTO> getUserByName(String name) {
 
-        return null;
+        List<User> userList = userRepository.findUserByName(name);
+
+        if (CollectionUtils.isEmpty(userList)) {
+
+            return null;
+        }
+
+        return userList.stream()
+                .map(user -> modelMapper.map(user, UserDTO.class))
+                .collect(Collectors.toList());
     }
 }
