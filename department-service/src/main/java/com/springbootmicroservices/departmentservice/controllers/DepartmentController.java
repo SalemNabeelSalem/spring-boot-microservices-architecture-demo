@@ -2,29 +2,25 @@ package com.springbootmicroservices.departmentservice.controllers;
 
 import com.springbootmicroservices.departmentservice.entities.Department;
 import com.springbootmicroservices.departmentservice.services.DepartmentService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@Slf4j
 @RestController
-@RequestMapping("/api/v1/departments")
+@RequestMapping("/api/v1")
 public class DepartmentController {
 
     @Autowired
     private DepartmentService departmentService;
 
-    @PostMapping("/")
-    public Department saveDepartment(@RequestBody Department departmentRequest) {
+    @PostMapping("/save_new_department")
+    public Department saveNewDepartment(@RequestBody Department InputDepartment) {
 
-        log.info("Inside saveDepartment method of DepartmentController.");
-        return departmentService.saveDepartment(departmentRequest);
+        return departmentService.saveNewDepartment(InputDepartment);
     }
 
-    @GetMapping("/{id}")
-    public Department findDepartmentById(@PathVariable("id") Long departmentId) {
+    @GetMapping("/get_department_by_id/{id}")
+    public Department getDepartmentById(@PathVariable("id") Long id) {
 
-        log.info("Inside findDepartmentById method of DepartmentController.");
-        return departmentService.findDepartmentById(departmentId);
+        return departmentService.getDepartmentById(id);
     }
 }
