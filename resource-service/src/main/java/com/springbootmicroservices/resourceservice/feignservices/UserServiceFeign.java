@@ -11,9 +11,9 @@ public interface UserServiceFeign {
 
     String urlPrefix = "/api/v1/";
 
-    @GetMapping(value = urlPrefix + "/get_by_id/{id}")
+    @GetMapping(value = urlPrefix + "/get_user_by_id/{id}")
     UserDTO getUserById(@PathVariable Long id);
 
-    @GetMapping(value = urlPrefix + "/get_by_name")
+    @GetMapping(value = urlPrefix + "/get_user_by_name")
     List<UserDTO> getUserByName(@RequestParam("name") String name);
 }
