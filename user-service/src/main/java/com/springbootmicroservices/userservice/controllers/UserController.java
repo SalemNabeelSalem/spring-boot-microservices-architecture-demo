@@ -14,19 +14,19 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping(value = "/save_update")
+    @PostMapping(value = "/save_new_user")
     public UserDTO saveNewUser(@RequestBody UserDTO inputUser) {
 
         return userService.saveNewUser(inputUser);
     }
 
-    @GetMapping(value = "/get_by_id/{id}")
+    @GetMapping(value = "/get_user_by_id/{id}")
     public UserDTO getUserById(@PathVariable Long id) {
 
         return userService.getUserById(id);
     }
 
-    @GetMapping(value = "/get_by_name")
+    @GetMapping(value = "/get_user_by_name")
     public List<UserDTO> getUserByName(@RequestParam("name") String name) {
 
         return userService.getUserByName(name);

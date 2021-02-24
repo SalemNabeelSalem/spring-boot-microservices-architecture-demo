@@ -33,6 +33,8 @@ public class UserService {
 
             user.setAge(Integer.parseInt(inputUser.getAge()));
 
+            user.setDepartmentId(inputUser.getDepartmentId());
+
             return modelMapper.map(userRepository.save(user), UserDTO.class);
 
         } catch (Exception ex) {
