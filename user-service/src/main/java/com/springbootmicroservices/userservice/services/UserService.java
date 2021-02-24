@@ -23,7 +23,7 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public UserDTO saveUpdate(UserDTO inputUser) {
+    public UserDTO saveNewUser(UserDTO inputUser) {
 
         try {
 
